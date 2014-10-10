@@ -5,7 +5,7 @@ package FlashVideo::Site::Channel4;
 
 use strict;
 
-use Crypt::Blowfish_PP;
+use Crypt::Blowfish;
 use FlashVideo::Utils;
 use FlashVideo::JSON;
 use MIME::Base64;
@@ -272,7 +272,7 @@ sub decode_4od_token {
 
   $encrypted_token = decode_base64($encrypted_token);
 
-  my $blowfish = Crypt::Blowfish_PP->new(TOKEN_DECRYPT_KEY);
+  my $blowfish = Crypt::Blowfish->new(TOKEN_DECRYPT_KEY);
 
   my $decrypted_token = '';
 
